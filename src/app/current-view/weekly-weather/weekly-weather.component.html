@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-2 col-md-2 col-4 day" *ngFor="let day of weekWeather">
+  <div class="col-lg-2 col-md-2 col-4 curr-day" *ngFor="let day of weekWeather">
       <div class="weather">
         <p *ngIf="day.date === this.today; else elseTemplate">
         today</p>

@@ -35,13 +35,12 @@ export class WeeklyWeatherComponent implements OnInit {
       let date = moment().add(i, 'days').format('YYYY-MM-DD');
       let day = data.list.filter((item) => item['dt_txt'].indexOf(date) >= 0);
 
-      let dayMin = day.reduce((acc, item) => {
+      let dayMin = day.length === 1 ? day[0].main.temp_min : day.reduce((acc, item) => {
           return acc < item.main.temp_min ? acc : item.main.temp_min});
-
-      let dayMax = day.reduce((acc, item) => {
+      let dayMax = day.length === 1 ? day[0].main.temp_max : day.reduce((acc, item) => {
         return acc > item.main.temp_max ? acc : item.main.temp_max});
 
-      let dayWeather = day.filter((item) => item['dt_txt'].indexOf('12:00') >= 0)[0];
+      let dayWeather = day.filter((item) => /([1-2]\d):\d*/gm.test(item['dt_txt']) )[0];
 
       this.weekWeather.push({
           date: date,
