@@ -1,0 +1,28 @@
+
+<div class="modal fade in">
+    <div class="modal-dialog">
+      <div class="modal-content gradient">
+        <div class="modal-body">
+            <button type="button" class="close" (click)="modalClose()"><span>x</span></button>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-group">
+                <div class="form-group text-center"
+                [ngClass]="{'was-validated': name.invalid && name.touched }">
+                    <label for="" class="col-8 col-form-label">
+                        <input type="text" 
+                        id="cityName"
+                        class="form-control"
+                        required
+                        #name="ngModel"
+                        name="name"
+                        ngModel
+                        placeholder="Введите название города">
+                    </label>
+                    <div class="form-text" *ngIf="name.invalid && name.touched">Поле не может быть пустым</div>
+                    <div class="alert-{{message.type}}" *ngIf="message.text">{{message.text}}</div>
+                </div>
+                <button [disabled]="f.invalid" class="col">add new</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

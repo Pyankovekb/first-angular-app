@@ -1,0 +1,45 @@
+
+a {
+    padding: 0;
+    font-size: 10px;
+    color: rgba($color: #ffffff, $alpha: .5);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+p {
+    margin: 0;
+    font-size: 10px;
+}
+h2 {
+    font-size: 13px;
+    margin: 0;
+    height: min-content;
+}
+.news {
+    margin: 0 auto;
+    padding:0 0;
+}
+.image {
+    padding: 0;
+    min-width: 80px;
+    min-height: 80px;
+    width: 80px;
+    height: 80px;
+    background-size: 100px;
+    background-position: center;
+    border: 1px solid rgba($color: #ffffff, $alpha: 0.7);
+    border-radius: 4px;
+
+}
+
+button {
+    
+    max-width: 30px;
+    width: 30px;
+    height: 30px;
+    background: rgba($color: #ffffff, $alpha: .7);
+    border-radius: 50%;
+    border: 0px solid;
+    padding: 0;
+    margin: 10px 0;
+}

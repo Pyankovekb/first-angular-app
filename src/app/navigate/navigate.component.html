@@ -1,0 +1,44 @@
+<h1>your cities weather</h1>
+  <div class="row" *ngIf="isloaded">
+    
+    <div class="col-lg-3 col-md-6 col-sm" *ngFor="let city of cities">
+      <div class="city-card"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact:true}" 
+      [ngStyle]="{'background-image': 'url(' + city.style.background +')' }">
+        <div class="gradient"
+        [ngStyle]="{'background': 'linear-gradient(to right, rgba(' + city.style.colorStart +' 0.8), rgba(' + city.style.colorEnd + ' 0.8))'}">
+          <h2>{{city.cityName}}</h2>
+
+          <div class="weather">
+            <p>now</p>
+            <div class="weather-icon"
+            [ngStyle]="{'background-image': (city.currentWeather.indexOf('2') === 0) ? 'url('+ 'assets/weather-ico/storm.png' +')' : 
+                                            (city.currentWeather.indexOf('3') === 0) ? 'url('+ 'assets/weather-ico/snowing-3.png' +')' : 
+                                            (city.currentWeather.indexOf('5') === 0) ? 'url('+ 'assets/weather-ico/rain-1.png' +')' : 
+                                            (city.currentWeather.indexOf('6') === 0) ? 'url('+ 'assets/weather-ico/snowing-1.png' +')' : 
+                                            (city.currentWeather.indexOf('7') === 0) ? 'url('+ 'assets/weather-ico/foggy.png' +')' : 
+                                            (city.currentWeather.indexOf('800') === 0) ? 'url('+ 'assets/weather-ico/sun.png' +')' :
+                                            'url('+ 'assets/weather-ico/cloudy-1.png' +')' }"></div>
+            <span>{{city.weather.max}}&deg;</span>
+          </div>
+        </div>
+        <button class="col" [routerLink]="['current', city.id]">show more</button>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm">
+      <div class="city-card add">
+          <div class="gradient">
+                  <h2>Add City</h2>
+                  <button (click)="onMenuOpen()"><i class="fas fa-plus"></i></button>
+          </div>
+          <button class="col" (click)="onMenuOpen()">add city</button>
+      </div>
+  </div>
+  <div *ngIf="isModalIsVisible">
+    <app-add-city
+    (onModalClose)="onModalClose()"
+    (onMenuAdd)="onMenuAdd($event)"
+    ></app-add-city>
+  </div>
+</div>

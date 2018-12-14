@@ -1,0 +1,38 @@
+
+.current-city {
+    position: relative;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 4px solid #000000;
+    color: #ffffff;
+
+    .gradient {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+    }
+    h1{
+        margin: 5vh 0;
+    }
+
+    .news {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .current-city {
+        height: 75vh;
+        h1{
+            margin: 2vh 0;
+        }
+    }
+    
+}
+@media (max-width: 576px) {
+    .current-city {
+        height: 100vh;
+    }
+}

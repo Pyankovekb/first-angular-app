@@ -1,0 +1,30 @@
+
+<router-outlet class="curr" >
+
+    <div class="current-city"
+    [ngStyle]="{'background-image': 'url(' + this.city.style.background +')' }">
+        <div class="gradient"
+        [ngStyle]="{'background': 'linear-gradient(to right, rgba(' + city.style.colorStart +' 0.8), rgba(' + city.style.colorEnd + ' 0.8))'}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12 weather group">
+                        <h1 @drop>{{city.cityName}}</h1>
+                        <app-weekly-weather 
+                        [(cityName)]="city.cityName"></app-weekly-weather>
+                    </div>
+                    <div class="col-lg-5 col-md-12 news group">
+                        <h1>local news</h1>
+                        <app-local-news 
+                        [(cityName)]="city.cityName"></app-local-news>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</router-outlet>
+
+
+
+
+
+   

@@ -1,0 +1,52 @@
+.row {
+
+    .day{
+        padding: 0;
+        &:first-child .weather {
+            border-left: 0px solid;
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 1px;
+                height: 65%;
+                top: 17.5%;
+                background-color: rgba($color: #ffffff, $alpha: 0.6)
+            }
+        }
+        &:last-child .weather {
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 1px;
+                height: 65%;
+                top: 17.5%;
+                right: 0;
+                background-color: rgba($color: #ffffff, $alpha: 0.6)
+            }
+        } 
+    }
+    .weather {
+        text-align: center;
+        border-left: 1px solid rgba($color: #ffffff, $alpha: 0.6);
+   
+        .weather-icon {
+            margin: 0 auto;
+            background-image: url('/assets/021-snowing.png') ;
+            background-size: cover;
+            width: 37px;
+            height: 37px;
+        }
+        span:first-of-type {
+            font-size: 11px;
+        }
+        span:last-of-type {
+            font-size: 8px;
+        }
+        p {
+            font-size: 12px;
+        }
+    }
+    
+}

@@ -1,0 +1,23 @@
+<div class="row align-items-center justify-content-center">
+
+  <button clas="col-lg-1 col-sm-1"*ngIf="idx > 0" (click)="prevNews(idx)"><i class="fas fa-chevron-left"></i></button>
+  <div class="col-lg-10 col-sm-10 news item">
+    <div class="news row align-items-center justify-content-center" *ngIf="'idx = 0'">
+
+      <div class="image col-lg-1 col-md-1"
+      [ngStyle]="{'background-image': 'url(' + localNews[idx].image.thumbnail.contentUrl +')' }"
+      >
+
+      </div>
+      <div class="col-lg-9 col-md-9">
+        <div class="row align-items-center">
+          <h2 class="col-5 col-md-5">{{localNews[idx].provider[0].name}}</h2>
+          <a class="col-5 col-md-5" href="{{localNews[idx].url}}">читать полностью</a>
+          <p class="col-12 col-md-12">{{localNews[idx].description}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    <button class="col-md-1 col-sm-1" *ngIf="idx < localNews.length -1" (click)="nextNews(idx)"><i class="fas fa-chevron-right"></i></button>
+</div>
